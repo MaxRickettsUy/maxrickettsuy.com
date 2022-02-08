@@ -1,0 +1,27 @@
+{
+  "name": "maxrickettsuy.com",
+  "version": "1.0.0",
+  "description": "Max's personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "postcss src/input.css -o src/output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxRickettsUy/maxrickettsuy.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxRickettsUy/maxrickettsuy.com/issues"
+  },
+  "homepage": "https://github.com/MaxRickettsUy/maxrickettsuy.com#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.19"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss-cli": "^9.1.0"
+  }
+}
