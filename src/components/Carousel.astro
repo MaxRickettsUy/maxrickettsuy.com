@@ -1,17 +1,14 @@
 ---
-
-
-const images = ["/mru0.webp", "/mru.webp", "/mru1.webp", "/mru2.webp", "/mru3.webp", "/mru4.webp", "/mru5.webp"];
-
-let shuffled = images
-    .map(value => ({ value, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ value }) => value)
+  const images = ["/mru0.webp", "/mru.webp", "/mru1.webp", "/mru2.webp", "/mru3.webp", "/mru4.webp", "/mru5.webp"];
 ---
 
 <div class="sm:w-1/4 w-1/2 carousel rounded-box lg:h-[40vh] h-[25vh]">
   {
-    shuffled.map((image) => {
+    images
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value)
+    .map((image) => {
       return (
         <div class="carousel-item w-full">
           <img src={image} class="w-full object-cover object-center h-full" />
