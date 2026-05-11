@@ -1,0 +1,13 @@
+---
+import { Icon } from 'astro-icon/components';
+interface Props {
+  href: string;
+  title: string;
+  icon: string;
+  external?: boolean;
+}
+const { href, title, icon, external = true } = Astro.props;
+---
+<a href={href} title={title} {...external ? { target: "_blank", rel: "noopener noreferrer" } : {}}>
+  <Icon name={icon} class="size-6 text-white hover:text-red-500 transition-colors" />
+</a>

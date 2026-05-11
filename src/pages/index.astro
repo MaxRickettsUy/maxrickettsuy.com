@@ -1,55 +1,30 @@
 ---
-import M19Y from "@components/M19Y.astro"
-import Carousel from "@components/Carousel.astro"
-import Github from '@components/Github.astro'
-import LinkedIn from '@components/LinkedIn.astro'
-import Mail from "@components/Mail.astro"
+import Layout from "@layouts/Layout.astro";
+import Carousel from "@components/Carousel.astro";
+import SocialIcon from "@components/SocialIcon.astro";
 
+const socials = [
+  { href: "https://www.github.com/MaxRickettsUy", title: "GitHub", icon: "simple-icons:github" },
+  { href: "https://www.linkedin.com/in/max-ricketts-uy", title: "LinkedIn", icon: "simple-icons:linkedin" },
+  { href: "https://m19y.dev", title: "m19y.dev", icon: "simple-icons:astro" },
+  { href: "mailto:mrickettsuy@protonmail.com", title: "Email", icon: "lucide:mail", external: false },
+];
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>maxrickettsuy - Max Ricketts-Uy</title>
-
-  <meta name="description" content="Home page">
-  <meta property="og:title" content="Max Ricketts-Uy - My Site">
-  <meta property="og:description" content="Max's personal website">
-  <meta property="og:image" content="https://www.maxrickettsuy/image.jpg">
-  <meta property="og:image:alt" content="Image description">
-  <meta property="og:locale" content="en_GB">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:url" content="https://www.maxrickettsuy.com">
-  <link rel="canonical" href="https://www.maxrickettsuy.com">
-
-  <link rel="icon" href="/favicon.ico">
-  <meta name="theme-color" content="#ef4444">
-
-  <script async src="https://us.umami.is/script.js" data-website-id="fc4532f7-5e19-4c41-a0f2-2d8269468a95"></script>
-  </head>
-
-  <body class="bg-gray-900">
-    <div class="flex justify-center flex-col items-center h-screen gap-4">
-      <div class="flex flex-row">
-        <h1 class="text-3xl text-red-500 font-bold">
-          hi, i'm max!
-        </h1>
-      </div>
-      <Carousel />
-      <div class="text-center">
-        <p>Scroll to view more photos! 😀</p>
-        <p>Check out the links below for more about me.</p>
-      </div>
-      <div class="flex flex-row mt-4 gap-5">
-        <Github />
-        <LinkedIn />
-        <M19Y />
-        <Mail />
-      </div>
+<Layout>
+  <div class="flex justify-center flex-col items-center h-screen gap-4">
+    <div class="flex flex-row">
+      <h1 class="text-3xl text-red-500 font-bold">
+        hi, i'm max!
+      </h1>
     </div>
-  </body>
-</html>
+    <Carousel />
+    <div class="text-center">
+      <p>Scroll to view more photos! 😀</p>
+      <p>Check out the links below for more about me.</p>
+    </div>
+    <div class="flex flex-row mt-4 gap-5">
+      {socials.map((s) => <SocialIcon {...s} />)}
+    </div>
+  </div>
+</Layout>
