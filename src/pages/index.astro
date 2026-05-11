@@ -1,30 +1,35 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Carousel from "@components/Carousel.astro";
-import SocialIcon from "@components/SocialIcon.astro";
+import { Icon } from 'astro-icon/components';
 
 const socials = [
-  { href: "https://www.github.com/MaxRickettsUy", title: "GitHub", icon: "simple-icons:github" },
-  { href: "https://www.linkedin.com/in/max-ricketts-uy", title: "LinkedIn", icon: "simple-icons:linkedin" },
-  { href: "https://m19y.dev", title: "m19y.dev", icon: "simple-icons:astro" },
-  { href: "mailto:mrickettsuy@protonmail.com", title: "Email", icon: "lucide:mail", external: false },
+  { href: "https://www.github.com/MaxRickettsUy", label: "GitHub", icon: "simple-icons:github" },
+  { href: "https://www.linkedin.com/in/max-ricketts-uy", label: "LinkedIn", icon: "simple-icons:linkedin" },
+  { href: "https://m19y.dev", label: "m19y.dev", icon: "simple-icons:astro" },
+  { href: "mailto:mrickettsuy@protonmail.com", label: "Email", icon: "lucide:mail", external: false },
 ];
 ---
 
 <Layout>
   <div class="flex justify-center flex-col items-center h-screen gap-4">
-    <div class="flex flex-row">
-      <h1 class="text-3xl text-red-500 font-bold">
-        hi, i'm max!
-      </h1>
-    </div>
+    <h1 class="text-3xl text-red-500 font-bold">hi, i'm max!</h1>
     <Carousel />
-    <div class="text-center">
-      <p>Scroll to view more photos! 😀</p>
-      <p>Check out the links below for more about me.</p>
+    <div class="flex items-center gap-2 text-sm text-gray-400 border border-gray-700 rounded-lg px-4 py-2 whitespace-nowrap">
+      <Icon name="lucide:info" class="size-4 shrink-0" />
+      <p>LinkedIn is my only social media account.</p>
     </div>
-    <div class="flex flex-row mt-4 gap-5">
-      {socials.map((s) => <SocialIcon {...s} />)}
+    <div class="grid grid-cols-2 gap-3">
+      {socials.map(({ href, label, icon, external }) => (
+        <a
+          href={href}
+          {...external !== false ? { target: "_blank", rel: "noopener noreferrer" } : {}}
+          class="flex flex-row items-center gap-3 border border-gray-700 rounded-lg px-4 py-2 hover:border-red-500 transition-colors group"
+        >
+          <Icon name={icon} class="size-6 text-white group-hover:text-red-500 transition-colors shrink-0" />
+          <span class="text-sm text-gray-400 underline">{label}</span>
+        </a>
+      ))}
     </div>
   </div>
 </Layout>
